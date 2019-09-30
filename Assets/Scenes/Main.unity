@@ -1296,6 +1296,11 @@ PrefabInstance:
       propertyPath: MetroCard
       value: 
       objectReference: {fileID: 299052552}
+    - target: {fileID: 584525090473568382, guid: b3f61a3b64b4d467cba6a209101f70a5,
+        type: 3}
+      propertyPath: rotateSensitivity
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3f61a3b64b4d467cba6a209101f70a5, type: 3}
 --- !u!1001 &5101109229769307018
@@ -1367,11 +1372,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299052553, guid: c28ce238963b740b48ec27ce81973120, type: 3}
       propertyPath: MoveSpeed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 299052554, guid: c28ce238963b740b48ec27ce81973120, type: 3}
       propertyPath: m_Constraints
-      value: 84
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 299052554, guid: c28ce238963b740b48ec27ce81973120, type: 3}
       propertyPath: m_AngularDrag

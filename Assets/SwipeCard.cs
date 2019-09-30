@@ -5,10 +5,12 @@ using UnityEngine;
 public class SwipeCard : MonoBehaviour
 {
 	public float MoveSpeed;
+	public float AngleClamp = 40f;
     
     private Rigidbody rb;
     private float mouseX, mouseY;
 	private Camera cam;
+	private float verticalAngle = 0;
     
     void Start()
     {
@@ -20,7 +22,12 @@ public class SwipeCard : MonoBehaviour
     {
         mouseX = Input.GetAxis("Mouse X"); //Horiz. mouse velocity
         mouseY = Input.GetAxis("Mouse Y"); // Vertical mouse velocity
+
+//	    verticalAngle = transform.localEulerAngles.y;
         
+//	    transform.localEulerAngles = new Vector3(0, 
+//		    Mathf.Clamp(transform.localEulerAngles.y, -AngleClamp, AngleClamp),
+//		    0);
     }
 
     private void FixedUpdate()

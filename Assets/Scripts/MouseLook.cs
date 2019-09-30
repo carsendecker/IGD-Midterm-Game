@@ -11,7 +11,7 @@ public class MouseLook : MonoBehaviour
     private float verticalAngle = 0f; //store verticalAngle in a global variable, not local
     // prevents wraparound between 180 to -180 degree rotation
 
-    private void Start()
+    private void Start() 
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
