@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22724c18-c6e8-435c-969e-577d1b2a29b2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MouseLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MouseLook.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SwipeCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SwipeCard.cs" afterDir="false" />
-    </list>
+    <list default="true" id="22724c18-c6e8-435c-969e-577d1b2a29b2" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +12,7 @@
     <session id="-372744524">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.5" value="4" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.opened" value="5" />
@@ -200,12 +196,12 @@
       <workItem from="1569811172874" duration="427000" />
       <workItem from="1569811971771" duration="15000" />
       <workItem from="1569812007084" duration="1165000" />
-      <workItem from="1569815255073" duration="6030000" />
+      <workItem from="1569815255073" duration="6281000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8559000" />
+    <option name="totallyTimeSpent" value="8810000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
