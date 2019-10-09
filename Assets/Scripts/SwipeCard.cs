@@ -6,25 +6,25 @@ public class SwipeCard : MonoBehaviour
 {
 	public float MoveSpeed;
 	public float AngleClamp = 40f;
-    
+	
     private Rigidbody rb;
     private float mouseX, mouseY;
 	private Camera cam;
 	private Vector3 perfectAngle;
+	
 	
     void Start()
     {
 	    rb = GetComponent<Rigidbody>();
 	    cam = Camera.main;
 	    perfectAngle = transform.forward;
+	    
     }
 
     void Update()
     {
         mouseX = Input.GetAxis("Mouse X"); //Horiz. mouse velocity
         mouseY = Input.GetAxis("Mouse Y"); // Vertical mouse velocity
-
-	    
     }
 
     private void FixedUpdate()
@@ -41,4 +41,5 @@ public class SwipeCard : MonoBehaviour
 		    rb.AddTorque(newRot.eulerAngles);
 	    }
     }
-}
+
+ }
