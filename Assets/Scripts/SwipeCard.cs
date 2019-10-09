@@ -10,12 +10,13 @@ public class SwipeCard : MonoBehaviour
     private Rigidbody rb;
     private float mouseX, mouseY;
 	private Camera cam;
-	private float verticalAngle = 0;
-    
+	private Vector3 perfectAngle;
+	
     void Start()
     {
 	    rb = GetComponent<Rigidbody>();
 	    cam = Camera.main;
+	    perfectAngle = transform.forward;
     }
 
     void Update()
@@ -23,21 +24,21 @@ public class SwipeCard : MonoBehaviour
         mouseX = Input.GetAxis("Mouse X"); //Horiz. mouse velocity
         mouseY = Input.GetAxis("Mouse Y"); // Vertical mouse velocity
 
-//	    verticalAngle = transform.localEulerAngles.y;
-        
-//	    transform.localEulerAngles = new Vector3(0, 
-//		    Mathf.Clamp(transform.localEulerAngles.y, -AngleClamp, AngleClamp),
-//		    0);
+	    
     }
 
     private void FixedUpdate()
     {
 	    Vector3 vel = rb.velocity;
-//	    vel.x = mouseX * MoveSpeed;
-//	    vel.z = mouseY * MoveSpeed;
-
 	    vel = cam.transform.right * mouseX + cam.transform.forward * mouseY;
-
 	    rb.velocity = vel * MoveSpeed;
+
+
+	    Debug.Log(Vector3.Angle(transform.forward, perfectAngle));
+	    if (Vector3.Angle(transform.forward, perfectAngle) > AngleClamp)
+	    {
+		    Quaternion newRot = Quaternion.FromToRotation(transform.forward, perfectAngle);
+		    rb.AddTorque(newRot.eulerAngles);
+	    }
     }
 }
