@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584525090473568378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.29, z: 0.33}
+  m_LocalPosition: {x: 0, y: 0.29, z: -0.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 584525091172192931}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3beca164a8e764a49b72620671cfc6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSensitivity: 7
+  rotateSensitivity: 5
 --- !u!1 &584525091172192943
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 584525091172192940}
   - component: {fileID: 584525091172192941}
   - component: {fileID: 584525091172192930}
-  - component: {fileID: 584525091172192942}
+  - component: {fileID: 6065640901238561583}
   - component: {fileID: 584525091172192929}
   m_Layer: 0
   m_Name: Player
@@ -127,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 584525091172192943}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.84, y: 2.24, z: -2.76}
-  m_LocalScale: {x: 1, y: 1.754, z: 1}
+  m_LocalScale: {x: 0.69220185, y: 1.1132405, z: 0.58717716}
   m_Children:
   - {fileID: 584525090473568383}
   m_Father: {fileID: 0}
@@ -140,7 +140,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584525091172192943}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &584525091172192941
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -196,8 +196,8 @@ MonoBehaviour:
   InteractDistance: 1.5
   SwipePrompt: {fileID: 0}
   MetroCard: {fileID: 0}
---- !u!65 &584525091172192942
-BoxCollider:
+--- !u!136 &6065640901238561583
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -206,8 +206,9 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
+  m_Height: 1.9999999
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &584525091172192929
 Rigidbody:

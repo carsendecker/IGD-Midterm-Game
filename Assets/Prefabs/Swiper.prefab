@@ -292,7 +292,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.12000002, y: 0.03315103, z: 0.06929684}
-  m_Center: {x: -0.31, y: 0.5211209, z: -0.10461044}
+  m_Center: {x: -0.31, y: 0.5211209, z: -0.16}
 --- !u!114 &1667795433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gate1: {fileID: 0}
   Gate2: {fileID: 0}
+  GateMoveDistance: 1
   StatusLight: {fileID: 266220950}
 --- !u!1 &5607712911811281666
 GameObject:

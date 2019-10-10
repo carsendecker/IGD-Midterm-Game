@@ -11,6 +11,7 @@ public class SwipeCard : MonoBehaviour
     private float mouseX, mouseY;
 	private Camera cam;
 	private Vector3 perfectAngle;
+	private Vector3 startPos;
 	
 	
     void Start()
@@ -18,10 +19,16 @@ public class SwipeCard : MonoBehaviour
 	    rb = GetComponent<Rigidbody>();
 	    cam = Camera.main;
 	    perfectAngle = transform.forward;
-	    
+	    startPos = transform.position;
+	    gameObject.SetActive(false);
     }
 
-    void Update()
+	private void OnEnable()
+	{
+		transform.position = startPos;
+	}
+
+	void Update()
     {
         mouseX = Input.GetAxis("Mouse X"); //Horiz. mouse velocity
         mouseY = Input.GetAxis("Mouse Y"); // Vertical mouse velocity
@@ -34,7 +41,7 @@ public class SwipeCard : MonoBehaviour
 	    rb.velocity = vel * MoveSpeed;
 
 
-	    Debug.Log(Vector3.Angle(transform.forward, perfectAngle));
+//	    Debug.Log(Vector3.Angle(transform.forward, perfectAngle));
 	    if (Vector3.Angle(transform.forward, perfectAngle) > AngleClamp)
 	    {
 		    Quaternion newRot = Quaternion.FromToRotation(transform.forward, perfectAngle);
