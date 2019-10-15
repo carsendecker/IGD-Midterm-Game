@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Swipe
   - Card
+  - Timer
   layers:
   - Default
   - TransparentFX

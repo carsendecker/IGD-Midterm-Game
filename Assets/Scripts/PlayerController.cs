@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Delay(bool enable)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         swiping = enable;
     }
 }

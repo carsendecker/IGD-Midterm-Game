@@ -12,21 +12,25 @@ public class SwipeCard : MonoBehaviour
 	private Camera cam;
 	private Vector3 perfectAngle;
 	private Vector3 startPos;
-	
+
+
+	private void Awake()
+	{
+		startPos = transform.position;
+	}
+
+	private void OnEnable()
+	{
+		transform.localPosition = startPos;
+	}
 	
     void Start()
     {
 	    rb = GetComponent<Rigidbody>();
 	    cam = Camera.main;
 	    perfectAngle = transform.forward;
-	    startPos = transform.position;
 	    gameObject.SetActive(false);
     }
-
-	private void OnEnable()
-	{
-		transform.position = startPos;
-	}
 
 	void Update()
     {

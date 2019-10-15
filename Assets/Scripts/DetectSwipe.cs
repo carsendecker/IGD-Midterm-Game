@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DetectSwipe : MonoBehaviour
 {
+    public float MinimumCardSpeed;
     public GameObject Gate1;
     public GameObject Gate2;
     public float GateMoveDistance;
@@ -46,7 +47,7 @@ public class DetectSwipe : MonoBehaviour
         {
             Rigidbody otherRB = other.GetComponent<Rigidbody>();
                         
-            if (otherRB.velocity.z > 0)
+            if (otherRB.velocity.z > MinimumCardSpeed)
             {
                 StatusLight.color = Color.green;
                 openGates = true;
