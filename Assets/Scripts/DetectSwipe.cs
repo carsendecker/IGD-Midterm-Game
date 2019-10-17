@@ -51,6 +51,7 @@ public class DetectSwipe : MonoBehaviour
             {
                 StatusLight.color = Color.green;
                 openGates = true;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().Swipe(false);
                 StartCoroutine(StatusWindow(2.5f));
             }
             else

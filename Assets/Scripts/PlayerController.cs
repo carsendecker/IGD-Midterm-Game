@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float MoveSpeed;
     public float JumpForce;
     public float InteractDistance;
+    public float PushbackForce;
     public TMP_Text SwipePrompt;
     public GameObject MetroCard;
 
@@ -35,7 +36,8 @@ public class PlayerController : MonoBehaviour
         tempVel = Input.GetAxis("Horizontal") * transform.right;
         tempVel += Input.GetAxis("Vertical") * transform.forward;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+//        Debug.DrawRay(transform.position, Vector3.down * 1, Color.blue);
+        if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(transform.position, Vector3.down, 1))
         {
             rb.AddForce(0, JumpForce, 0, ForceMode.Impulse);
         }
@@ -67,10 +69,20 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove)
         {
-            rb.velocity = new Vector3(tempVel.x * MoveSpeed, rb.velocity.y, tempVel.z * MoveSpeed);
+            rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(tempVel.x * MoveSpeed, rb.velocity.y, tempVel.z * MoveSpeed), 0.2f);
         }
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            rb.AddForce(other.contacts[0].normal * PushbackForce, ForceMode.Impulse);
+        }
+    }
+
+    
+    
     private void CheckForInteraction()
     {
         if (Physics.Raycast(cam.transform.position, cam.transform.forward,  out hit, InteractDistance))
@@ -84,7 +96,7 @@ public class PlayerController : MonoBehaviour
             lookingAtSwiper = false;
     }
 
-    private void Swipe(bool enable)
+    public void Swipe(bool enable)
     {
         StartCoroutine(Delay(enable));
         MetroCard.SetActive(enable);

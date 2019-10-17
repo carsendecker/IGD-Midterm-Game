@@ -45,10 +45,7 @@ public class GameController : MonoBehaviour
 
         if (timer <= 0 && !gameEnded)
         {
-            Camera.main.enabled = false;
-            EndingCamera.enabled = true;
-            gameEnded = true;
-            EndText.enabled = true;
+            EndGame();
         }
 
         if (gameEnded)
@@ -57,7 +54,7 @@ public class GameController : MonoBehaviour
             Train.transform.Translate(-Train.transform.forward * trainSpeed);
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -65,6 +62,20 @@ public class GameController : MonoBehaviour
 
     public void Win()
     {
-        
+        if (!gameEnded)
+        {
+            EndText.text = "You made it!";
+            EndGame();
+        }
     }
+
+    private void EndGame()
+    {
+        Camera.main.enabled = false;
+        EndingCamera.enabled = true;
+        gameEnded = true;
+        EndText.enabled = true;
+        GameObject.FindGameObjectWithTag("Player").SetActive(false);
+    }
+
 }
