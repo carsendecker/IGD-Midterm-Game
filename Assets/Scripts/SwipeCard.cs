@@ -44,13 +44,28 @@ public class SwipeCard : MonoBehaviour
 	    vel = cam.transform.right * mouseX + cam.transform.forward * mouseY;
 	    rb.velocity = vel * MoveSpeed;
 
+//		float clampedY = Mathf.Clamp(transform.rotation.eulerAngles.y, -30, 30);
+//	    Vector3 clampedAngles = new Vector3(transform.rotation.eulerAngles.x, clampedY, transform.rotation.eulerAngles.z);
+//	    transform.rotation = Quaternion.Euler(clampedAngles);
 
 //	    Debug.Log(Vector3.Angle(transform.forward, perfectAngle));
 	    if (Vector3.Angle(transform.forward, perfectAngle) > AngleClamp)
 	    {
 		    Quaternion newRot = Quaternion.FromToRotation(transform.forward, perfectAngle);
-		    rb.AddTorque(newRot.eulerAngles);
+		    float clampedAngleY = Mathf.Clamp(newRot.eulerAngles.y, 0, 30);
+		    Debug.Log(clampedAngleY);
+		    rb.AddTorque(new Vector3(0, -clampedAngleY, 0));
+		    
 	    }
+//	    else if (Vector3.SignedAngle(perfectAngle, transform.forward, Vector3.up) < -AngleClamp)
+//	    {
+//		    Quaternion newRot = Quaternion.FromToRotation(transform.forward, perfectAngle);
+//		    float clampedAngleY = Mathf.Clamp(newRot.eulerAngles.y, -30, 0);
+//		    Debug.Log(clampedAngleY);
+//
+//		    rb.AddTorque(new Vector3(0, clampedAngleY, 0));
+//
+//	    }
     }
 
  }

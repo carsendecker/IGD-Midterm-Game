@@ -11,18 +11,23 @@ public class DetectSwipe : MonoBehaviour
     public float GateMoveDistance;
     public Light StatusLight;
     public TMP_Text StatusText;
+    public AudioClip RightSound, WrongSound;
+    public GameObject Confetti;
     
     private bool swipedCard;
     private bool openGates;
     private Vector3 initGatePos1, initGatePos2;
+    private AudioSource aso;
 
     
     void Start()
     {
+        Confetti.SetActive(false);
         StatusLight.color = Color.red;
         StatusText.text = "";
         initGatePos1 = Gate1.transform.position;
         initGatePos2 = Gate2.transform.position;
+        aso = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -53,6 +58,9 @@ public class DetectSwipe : MonoBehaviour
             if (otherRB.velocity.z > MinimumCardSpeed)
             {
                 StatusLight.color = Color.green;
+                aso.PlayOneShot(RightSound);
+                Confetti.SetActive(true);
+                
                 openGates = true;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().Swipe(false);
                 StartCoroutine(StatusWindow(2.5f));
@@ -60,6 +68,7 @@ public class DetectSwipe : MonoBehaviour
             else
             {
                 StatusLight.color = Color.yellow;
+                aso.PlayOneShot(WrongSound);
                 if (otherRB.velocity.z > 0)
                 {
                     StatusText.text = "Too Slow";

@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float PushbackForce;
     public TMP_Text SwipePrompt;
     public GameObject MetroCard;
+    public AudioClip oof;
 
     private Rigidbody rb;
     private Vector3 tempVel;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool lookingAtSwiper;
     private bool swiping;
     private bool canMove;
+    private AudioSource aso;
     
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
         cam = GetComponentInChildren<Camera>();
         rb = GetComponent<Rigidbody>();
         canMove = true;
+        aso = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -78,6 +81,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             rb.AddForce(other.contacts[0].normal * PushbackForce, ForceMode.Impulse);
+            aso.PlayOneShot(oof);
         }
     }
 

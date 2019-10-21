@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour
             Train.transform.Translate(-Train.transform.forward * trainSpeed);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
     {
         if (!gameEnded)
         {
-            EndText.text = "You made it!";
+            EndText.text = "You made it! \n \n \n <size=20>(press P to play again)</size>";
             EndGame();
         }
     }

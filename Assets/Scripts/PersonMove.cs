@@ -34,6 +34,11 @@ public class PersonMove : MonoBehaviour
                 StartCoroutine(Walk());
             }
         }
+
+        if (walking)
+        {
+            rb.velocity = Vector3.Lerp(rb.velocity, transform.forward * WalkSpeed, 0.2f);
+        }
         
         
         if (Physics.Raycast(wallDetect, out hit, 1f))
@@ -49,13 +54,12 @@ public class PersonMove : MonoBehaviour
     {
         walking = true;
         transform.Rotate(0, Random.Range(-80, 80), 0);
-        rb.velocity = transform.forward * WalkSpeed;
+        
 
         float rand = Mathf.Round(Random.Range(WalkMin, WalkMax));
         
         yield return new WaitForSeconds(rand);
 
-        rb.velocity = Vector3.zero;
         pauseTimer = Random.Range(PauseMin, PauseMax);
         walking = false;
     }
