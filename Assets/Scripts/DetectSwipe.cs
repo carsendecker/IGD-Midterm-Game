@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DetectSwipe : MonoBehaviour
@@ -9,6 +10,7 @@ public class DetectSwipe : MonoBehaviour
     public GameObject Gate2;
     public float GateMoveDistance;
     public Light StatusLight;
+    public TMP_Text StatusText;
     
     private bool swipedCard;
     private bool openGates;
@@ -18,6 +20,7 @@ public class DetectSwipe : MonoBehaviour
     void Start()
     {
         StatusLight.color = Color.red;
+        StatusText.text = "";
         initGatePos1 = Gate1.transform.position;
         initGatePos2 = Gate2.transform.position;
     }
@@ -57,6 +60,15 @@ public class DetectSwipe : MonoBehaviour
             else
             {
                 StatusLight.color = Color.yellow;
+                if (otherRB.velocity.z > 0)
+                {
+                    StatusText.text = "Too Slow";
+                }
+                else
+                {
+                    StatusText.text = "Wrong Way";
+                }
+
                 StartCoroutine(StatusWindow(1f));
             }
         }
@@ -69,6 +81,7 @@ public class DetectSwipe : MonoBehaviour
         swipedCard = false;
         openGates = false;
         StatusLight.color = Color.red;
+        StatusText.text = "";
     }
 }
 
